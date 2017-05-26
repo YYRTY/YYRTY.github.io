@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>联盟商店</title>
+<link href="style/jquery.fullPage.css" rel="stylesheet" type="text/css">
+<link href="style/web.css" rel="stylesheet" type="text/css">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script>
+$(function(){
+	$(".con").fullpage({
+		sectionsColor: ['#faca00', '#fbfbfb', '#fdfcf2', 'fffefb', '#f8f7f3'],
+		navigation:true,
+		navigationTooltips:['首页','二叶','three','四目','终结',],
+		anchors:['one','two','three','four','five'],
+		menu:"#menu",
+		scrollOverflow:false
+	})	
+	
+})
+
+
+
+</script>
+
+
+
+</head>
+
+<body>
+
+<div class="header">
+	<div class="hd_con">
+		<a href="#" class="logo"></a>
+		<ul id="menu">
+                <li data-menuanchor="one"  class="active"><a href="#one" style="display:none;"></a></li>
+                <li data-menuanchor="two"><a href="#two">佛雷尔卓德</a></li>
+                <li data-menuanchor="three" ><a href="#three">艾欧尼亚</a></li>
+                <li data-menuanchor="four" ><a href="#four">诺克萨斯</a></li>
+                <li data-menuanchor="five" ><a href="#five">扭曲丛林</a></li>
+         </ul>        
+   </div>
+</div>
+
+<div class="con">
+	<!--第1页-->
+	<section class="section" id="page1">
+    	<div class="bg"></div>
+    </section>
+    
+    <!--第2页-->
+    <section class="section" id="page2" style="overflow:hidden; height:100%;">
+    <div class="inner">
+    	<div class="bg"></div>
+        
+        <div class="left">
+        	<ul>
+            	<li>
+                	<img src="images/lo17.jpg">
+                    <p>劫<br/>无形之刃</p>
+                    <a href="#"></a>                    
+                </li>
+                <li>
+                	<img src="images/lo15.jpg">
+                    <p>悟空<br/>俺老孙来也！</p>
+                    <a href="#"></a>                    
+                </li>
+                <li>
+                	<img src="images/lo18.jpg">
+                    <p>泰隆<br/>刀下生，刀下死</p>
+                    <a href="#"></a>                    
+                </li>
+            </ul>
+        </div>
+        
+        <div class="right">
+        	<h1>佛雷尔卓德</h1>
+            价格：很实惠<br/>
+            但是买不起<br/>
+            <a href="#"></a>
+        </div>
+        </div>    
+    </section>
+    
+    
+    
+    <!--第3页-->
+    <section class="section" id="page3">
+    	<div class="bg"></div>
+        <div class="left">
+        	<ul>
+            	<li>
+                	<img src="images/lo14.jpg">
+                    <p>蛇女<br/>卡西奥佩娅</p>
+                    <a href="#"></a>                    
+                </li>
+                <li>
+                	<img src="images/lo16.jpg">
+                    <p>波比<br/>如果语言劝说没有用的话，我的铁锤就会继续劝说!</p>
+                    <a href="#"></a>                    
+                </li>
+                <li>
+                	<img src="images/lo19.jpg">
+                    <p>伊泽瑞尔<br/>像我这么帅的，一般都是主角！</p>
+                    <a href="#"></a>                    
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+        	<h1>艾欧尼亚</h1>
+            价格：xx元<br/>
+            艾欧尼亚终将被征服<br/>
+            <a href="#"></a>
+        </div>
+    </section>
+    
+    
+    <!--第4页-->
+    <section class="section" id="page4">
+    	<div class="bg"></div>
+        <div class="left">
+        	<ul>
+            	<li>
+                	<img src="images/lo20.jpg">
+                    <p>德邦总管<br/>枪出如龙</p>
+                    <a href="#"></a>                    
+                </li>
+                <li>
+                	<img src="images/lo21.jpg">
+                    <p>厄加特<br/>目的地已收到</p>
+                    <a href="#"></a>                    
+                </li>
+                <li>
+                	<img src="images/lo91.jpg">
+                    <p>发条<br/>他们的叫声好奇怪</p>
+                    <a href="#"></a>                    
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+        	<h1>诺克萨斯</h1>
+            价格：0.99元<br/>
+            诺克萨斯终将被毁灭<br/>
+            <a href="#"></a>
+        </div>
+    </section>
+    
+    
+    <!--第5页-->
+    <section class="section" id="page5">
+    	<div class="bg"></div>
+        <div class="left">
+        	<ul>
+            	<li>
+                	<img src="images/lo88.jpg">
+                    <p>瑞文<br/>断剑重铸之日，骑士归来之时</p>
+                    <a href="#"></a>                    
+                </li>
+                <li>
+                	<img src="images/lo89.jpg">
+                    <p>武器<br/>看招出招吧</p>
+                    <a href="#"></a>                    
+                </li>
+                <li>
+                	<img src="images/lo90.jpg">
+                    <p>龙女<br/>我闻到恐惧了！</p>
+                    <a href="#"></a>                    
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+        	<h1>扭曲丛林</h1>
+            价格：0.01元<br/>
+            让我带你们走向胜利<br/>
+            <a href="#"></a>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

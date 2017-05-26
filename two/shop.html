@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;font-family: "微软雅黑";font-size: 14px;text-align: center;}
+			thead tr th{height: 30px;width: 100px;border: 1px solid silver;}
+			tbody tr td{width: 100px;height: 20px;border: 1px solid silver;}
+			.footer{float:left;width: 500px;height: 30px;border: 1px solid #000000;}
+		</style>
+	</head>
+	<body>
+		<button onclick="books()">返回</button>
+		<table id="carttable">
+			<thead>
+			<tr>
+				<th><label><input type="checkbox"class="check-all check" />&nbsp;全选</label></th>
+				<th>商品</th>
+				<th>单价</th>
+				<th>数量</th>
+				<th>小计</th>
+				
+			</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="chectbox"><input type="checkbox" class="check-one check" /></td>
+					<td class="goods"><img src="mu/057.jpg" style="width: 50px;height: 50px;"/><span>python</span></td>
+					<td class="price">388.88</td>
+					<td class="count">
+						<span class="reduce">-</span>
+						<input type="text"  value="1" class="count-input" style="width: 20px;"/>
+						<span class="add">+</span>
+					</td>
+					<td class="subtutal">388.88</td>
+					
+				</tr>
+				<tr>
+					<td class="chectbox"><input type="checkbox" class="check-one check" /></td>
+					<td class="goods"><img src="mu/058.jpg" style="width: 50px;height: 50px;"/><span>JAVA</span></td>
+					<td class="price">588.88</td>
+					<td class="count">
+						<span class="reduce">-</span>
+						<input type="text"  value="1" class="count-input" style="width: 20px;"/>
+						<span class="add">+</span>
+					</td>
+					<td class="subtutal">588.88</td>
+					
+				</tr>
+			</tbody>
+		</table>
+		<div class="footer"id="footer">
+			<label class="fl select-all"style="float: left;margin-left: 45px;"><input type="checkbox"class="check-all check" />&nbsp;全选</label>
+			<div class="fr closing" style="float: left;margin-left: 50px;">结 算</div>
+			<div class="fr total" style="float: left;">合计 ：¥<span id="pricetotal">0.00</span></div>
+			<div class="fr selected" id="selected" style="float: left;margin-left: 50px;">已选商品
+				<span id="selectedtotal">0</span>件
+			</div>
+			
+		</div>
+		<script type="text/javascript">
+			var carttable=document.getElementById('carttable');
+			var tr=carttable.children[1].rows;
+			var checkinputs=document.getElementsByClassName('check');
+			var checkallinputs=document.getElementsByClassName('check-all')
+			var selectedtotal=document.getElementById('selectedtotal');
+			var pricetotal=document.getElementById('pricetotal');
+			
+			//计算
+			function gettotal () {
+				var seleted=0
+				var price=0
+				for (var i=0,len=tr.length;i<len;i++) {
+					if (tr[i].getElementsByTagName('input')[0].checked) {
+						seleted+=parseInt(tr[i].getElementsByTagName('input')[1].value)
+						price += parseFloat(tr[i].cells[4].innerHTML)
+					}
+					
+				}
+				selectedtotal.innerHTML=seleted
+				pricetotal.innerHTML=price.toFixed(2)
+			}
+			//小计
+			function getsubtotal (tr) {
+				var tds=tr.cells
+				var price=parseFloat(tds[2].innerHTML)
+				var count=parseInt(tr.getElementsByTagName('input')[1].value)
+				var subtotal=parseFloat(price*count)
+				tds[4].innerHTML=subtotal.toFixed(2)
+			}
+			
+			
+			
+			for (var i=0,len=checkinputs.length;i<len;i++) {
+				checkinputs[i].onclick=function  () {
+					if (this.className==='check-all check') {
+						for (var j=0;j<checkinputs.length;j++) {
+							checkinputs[j].checked=this.checked
+						}
+					}
+					if (this.checked===false) {
+					for (var k=0;k<checkallinputs.length;k++) {
+						checkallinputs[k].checked=false
+					}
+					}
+					gettotal()
+				}
+			}
+			
+			for (var i=0;i<tr.length;i++) {
+				tr[i].onclick=function (e){
+					e=e ||window.event;
+					var el=e.srcElement
+					var cls=el.className
+					var input=this.getElementsByTagName('input')[1]
+					var val=parseInt(input.value);
+					switch(cls){
+						case'add':
+						input.value=val+1
+						getsubtotal(this)
+						break;
+						case'reduce':
+						input.value=val-1
+						getsubtotal(this)
+						break;
+						default:
+						break;
+					}
+					gettotal()
+					
+				}
+				tr[i].getElementsByTagName('input')[1].onkeyup=function  () {
+					var val=parseInt(this.value)
+					getsubtotal(this.parentNode.parentNode)
+					if (isNaN(val) || val<1 ){
+						val=1
+					} 
+					this.value=val
+				}
+				
+			}
+			function books () {
+				window.location.href='http://127.0.0.1:8020/dsa/%E6%85%95%E8%AF%BE.html'
+			}
+		</script>
+	</body>
+</html>
